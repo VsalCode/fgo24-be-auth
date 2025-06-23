@@ -15,6 +15,11 @@ func AuthLogin(ctx *gin.Context) {
 	for _, item := range models.Users {
 		if credentials.Email == item.Email && credentials.Password == item.Password {
 			statusLogin = "login"
+			ctx.JSON(http.StatusOK, models.Response{
+				Success: true,
+				Message: "Login success",
+				Result:  item,
+			})
 			break
 		}
 		statusLogin = "cannot login"
@@ -27,11 +32,5 @@ func AuthLogin(ctx *gin.Context) {
 		})
 		return
 	}
-
-	ctx.JSON(http.StatusOK, models.Response{
-		Success: true,
-		Message: "Login success",
-		Result:  credentials,
-	})
 
 }

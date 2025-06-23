@@ -5,7 +5,6 @@ import (
 	"gin-authflow/models"
 	"math/rand"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,7 +12,7 @@ func ForgotPassword(ctx *gin.Context) {
 	var email string
 	ctx.ShouldBind(&email)
 
-	randomNumber := rand.Intn(900000) + 100000
+	randomNumber := fmt.Sprintf("%d", rand.Intn(900000) + 100000)
 
 	isEmailValid := "valid"
 	for _, item := range models.Users {
