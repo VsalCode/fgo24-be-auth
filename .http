@@ -1,0 +1,12 @@
+POST /auth/register HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+
+fullname=faisal&email=faisal@mail.com&password=123&confirmPassword=123
+
+###
+POST /auth/login HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+
+fullname=faisal&email=faisal@mail.com&password=123
