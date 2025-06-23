@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"gin-authflow/models"
-	"net/http"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func AuthLogin(ctx *gin.Context) {
@@ -25,12 +25,13 @@ func AuthLogin(ctx *gin.Context) {
 			Success: false,
 			Message: "Login Failed! your account is not found!",
 		})
-	} else {
-		ctx.JSON(http.StatusOK, models.Response{
-			Success: true,
-			Message: "Login success",
-			Result:  credentials,
-		})
+		return
 	}
+
+	ctx.JSON(http.StatusOK, models.Response{
+		Success: true,
+		Message: "Login success",
+		Result:  credentials,
+	})
 
 }
